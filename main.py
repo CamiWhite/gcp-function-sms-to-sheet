@@ -33,7 +33,7 @@ def append_in_sheet(reference, cost):
     reference (string): The name of the entity who made the charge
     cost (string): The cost of the charge
   """
-  sheets = build('sheets', 'v4').spreadsheets()
+  sheets = build('sheets', 'v4', cache_discovery = False).spreadsheets()
   today = build_date()
   request = sheets.values().append(
     spreadsheetId = SPREADSHEET_ID,
