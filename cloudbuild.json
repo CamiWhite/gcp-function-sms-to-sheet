@@ -1,0 +1,14 @@
+{
+  "steps": [
+    {
+      "name": "gcr.io/cloud-builders/gcloud",
+      "args": [
+        "functions",
+        "deploy",
+        "sms-account",
+        "--source=https://source.developers.google.com/projects/sms-account-translate/repos/github_azurebird_gcp-function-sms-to-sheet/moveable-aliases/master/paths//",
+        "--trigger-http"
+      ]
+    }
+  ]
+}
