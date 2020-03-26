@@ -1,6 +1,7 @@
 import re
 import datetime
 from googleapiclient.discovery import build
+from flask import jsonify
 
 SPREADSHEET_ID = '127b8BKo6EMyu4CqMv4WSgfxH1qBXFLYJ-3fAMwTYJos'
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
@@ -24,7 +25,7 @@ def save_sms(request):
 
   append_in_sheet(reference, cost)
 
-  return { 'res': 'Ok' }
+  return jsonify({ 'res': 'Ok' })
 
 def append_in_sheet(reference, cost):
   """
