@@ -24,7 +24,7 @@ def save_sms(request):
 
   append_in_sheet(reference, cost)
 
-  return 'Ok'
+  return { 'res': 'Ok' }
 
 def append_in_sheet(reference, cost):
   """
