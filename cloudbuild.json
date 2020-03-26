@@ -8,7 +8,8 @@
         "sms-account",
         "--source=https://source.developers.google.com/projects/sms-account-translate/repos/github_azurebird_gcp-function-sms-to-sheet/moveable-aliases/master/paths//",
         "--trigger-http",
-        "--runtime=python37"
+        "--runtime=python37",
+        "--max-instances=1"
       ]
     }
   ]
