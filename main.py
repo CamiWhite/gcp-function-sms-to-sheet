@@ -1,7 +1,6 @@
 import re
 import datetime
 from googleapiclient.discovery import build
-from google.oauth2 import service_account
 
 SPREADSHEET_ID = '127b8BKo6EMyu4CqMv4WSgfxH1qBXFLYJ-3fAMwTYJos'
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets']
@@ -20,7 +19,7 @@ def save_sms(request):
   request_json = request.get_json()
 
   print(request_json)
-  message = request_json['body'].get('message') or 'Empty message'
+  message = request_json.get('message') or 'Empty message'
   (reference, cost) = extract_details(message)
 
   append_in_sheet(reference, cost)
