@@ -19,6 +19,7 @@ def save_sms(request):
   """
   request_json = request.get_json()
 
+  print(request_json)
   message = request_json['body'].get('message') or 'Empty message'
   (reference, cost) = extract_details(message)
 
