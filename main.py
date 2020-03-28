@@ -56,9 +56,9 @@ def extract_details(message):
   Returns:
     A tuple containing the reference and cost in the form (reference, cost)
   """
-  reference = re.search(' a (.*?) desde', message).group(1)
-  string_cost = re.search(' por (.*?) a ', message).group(1)
-  cost = int(''.join(re.findall(r'\d+', string_cost) or '000')[0 : -2])
+  reference = re.search(r'( a | en )(.*?)( desde | [0-9]+)', message).group(2)
+  string_cost = re.search(r'\$(.*?)00 ', message).group(1)
+  cost = int(''.join(re.findall(r'\d+', string_cost)))
   return reference, cost
 
 def build_range():
