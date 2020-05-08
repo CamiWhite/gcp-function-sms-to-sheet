@@ -56,18 +56,18 @@ def extract_details(message):
   Returns:
     A tuple containing the reference and cost in the form (reference, cost)
   """
-  reference = re.search(r'( a | en )(.*?)( desde | [0-9]+)', message).group(2)
-  string_cost = re.search(r'\$(.*?)[0-9]+ ', message).group(1)
+  reference = re.search(r'( a | en )(.*?)( desde | \d\d:\d\d)', message).group(2)
+  string_cost = re.search(r'\$(.*?)\d\d ', message).group(1)
   cost = int(''.join(re.findall(r'\d+', string_cost)))
   return reference, cost
 
 def build_range():
   """
-  Build the sheets range in A1 format with the prefix given by the current month
+  Build the sheets range in A1 format with the prefix given by the current month plus five days
   Returns:
     The range
   """
-  mydate = datetime.datetime.now()
+  mydate = datetime.datetime.now() + datetime.timedelta(days=5)
   month = mydate.strftime('%B')
   return f'{month}!A1'
 
